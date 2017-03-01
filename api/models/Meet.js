@@ -6,9 +6,14 @@
  */
 
 module.exports = {
-
   attributes: {
-
+    name: {
+      type: 'string'
+    },
+    rankings: {
+      type: 'json',
+      defaultsTo: null
+    }
   }
 };
 

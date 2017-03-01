@@ -24,8 +24,19 @@ module.exports = {
         });
     },
 
-    create: (req, res) => {
-        // sort json and shit, create rankings
+    rankings: (req, res) => {
+        Meet.findOrCreate({ 
+            name: req.body.meet,
+            rankings: req.body.rankings
+        }, {
+            name: req.body.meet,
+            rankings: req.body.rankings    
+        }).exec((err, meet) => {
+            if(err || !meet) return res.serverError();
+            meet.rankings = req.body.rankings;
+            meet.save((err) => {
+                if(err) return res.serverError();
+            })
+        });
     }
 };
-
