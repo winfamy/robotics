@@ -1,0 +1,119 @@
+<!-- Preloader
+============================================= -->
+<div class="preloader"><i class="fa fa-circle-o-notch fa-spin fa-2x"></i></div>
+<!-- Header
+============================================= -->
+<section class="main-header">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><img src="/img/logos/firstblackandwhite.png" class="img-responsive" alt="logo"></a>
+			</div>
+			<div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
+				<div class="col-md-8 col-xs-12 nav-wrap">
+					<ul class="nav navbar-nav">
+						<li><a href="#Home">Home</a></li>
+						<li><a href="#TeamFinder">Team Finder</a></li>
+						<li><a href="#AboutUs">About Us</a></li>
+						<li><a href="#Events">Events</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div id="owl-hero" class="owl-carousel owl-theme">
+		<div class="item" style="background-image: url(/img/actionshots/scmeet.jpeg)">
+			<div class="caption">
+				<h1>Hosted Live <span>Events</span></h1>
+				<!-- Drop down menu-->
+					<select id="eventdropdown" name="size" class="prettydropdown">
+						<option value="defaultselect">Select an Event</option>
+						{{#each meets}}
+						<option value="ranks/{{name}}">{{name}}</option>
+						{{/each}}
+					</select>
+			</div>
+		</div>
+		<div class="item" style="background-image: url(/img/actionshots/scmeet3.JPG)">
+			<div class="caption">
+				<h1>Find Other <span>Teams</span></h1>
+				<a class="btn btn-transparent" href="#">Connect</a>
+			</div>
+		</div>
+		<div class="item" style="background-image: url(/img/actionshots/drawingboard.JPG)">
+			<div class="caption">
+				<h1>About <span>Us</span></h1>
+				<a class="btn btn-transparent" href="#">Our Mission</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Welcome
+============================================= -->
+<section id="welcome">
+	<div class="container">
+		<h2>Welcome To <span>FTC Connect</span></h2>
+		<hr class="sep">
+		<p>Check out the different tabs to learn more about this site</p>
+	</div>
+</section>
+
+<!-- Services
+============================================= -->
+<section id="services">
+	<div class="container">
+		<h2>Team Finder</h2>
+		<hr class="light-sep">
+		<p>Find FTC teams in your area</p>
+	</div>
+</section>
+
+
+<!-- Some Fune Facts
+============================================= -->
+<section id="team">
+	<div class="container">
+		<h2>Event Hosting</h2>
+		<hr class="sep">
+		<p>This site is currently hosting meets and qualifiers. Current rankings and match scores are available here</p>
+	</div>
+</section>
+<!-- Testimonials
+============================================= -->
+<section id="testimonials">
+	<div class="container">
+		<h2>About Us</h2>
+		<hr class="light-sep">
+		<p>Learn more about the site's creators and its purpose in the About Us section</p>
+	</div>
+</section>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/bootstrap-assets/js/bootstrap.min.js"></script>
+<script src="/js/custom.js"></script>
+<!-- JS PLUGINS -->
+<script src="/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+<script src="/plugins/countTo/jquery.countTo.js"></script>
+<script src="/plugins/inview/jquery.inview.min.js"></script>
+<script src="/plugins/Lightbox/dist/js/lightbox.min.js"></script>
+<script src="/plugins/WOW/dist/wow.min.js"></script>
+<!--Drop Downs-->
+<link rel="stylesheet" href="/css/prettydropdowns.css">
+
+<script src="/js/jquery.prettydropdowns.js"></script>
+<script>
+	$(document).ready(function() {
+		$('select').prettyDropdown();
+	});
+</script>

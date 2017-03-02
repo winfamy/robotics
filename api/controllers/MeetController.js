@@ -9,7 +9,24 @@ module.exports = {
 
     // handle homepage ?
     index: (req, res) => {
-        return res.view();
+        Meet.find({}).exec((err, meets) => {
+            if(err || !meets) return res.serverErrors();
+            return res.view('index', {
+                meets: (meets.length >= 1) ? meets : ['No meets found. :(']
+            });
+        });
+
+    },
+
+    view: (req, res) => {
+        if(!req.param("name")) return res.badRequest();
+
+        Meet.find({name: req.param("name")}).exec((err, meet) => {
+            if(err || !meet) return res.serverError();
+            return res.view('view', {
+                meet: JSON.stringify(meet)
+            });
+        })
     },
 
     // Subscribe to meet updates
