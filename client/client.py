@@ -40,10 +40,11 @@ def parse_rankings(text):
 	return results
 		
 def post_rankings(data):
-	requests.post("http://localhost:1337/meet/rankings", data=json.dumps({
+	req = requests.post("http://ftcconnect.org/meet/rankings", data=json.dumps({
 		'meet': meet_name,
 		'rankings': data
 	}))
+	return True
 
 while(True):
 	files = [ f for f in os.listdir( os.curdir ) if os.path.isfile(f) ]
@@ -56,9 +57,6 @@ while(True):
 
 			if (hashed != hash_rankings):
 				hash_rankings = hashed
-				print(parse_rankings(text))
 				post_rankings(parse_rankings(text))
 
-
-
-	time.sleep(30)
+	time.sleep(5)

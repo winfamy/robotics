@@ -12,7 +12,7 @@ module.exports = {
         Meet.find({}).exec((err, meets) => {
             if(err || !meets) return res.serverErrors();
             return res.view('index', {
-                meets: (meets.length >= 1) ? meets : ['No meets found. :(']
+                meets: (meets.length >= 1) ? _.map(meets, (meet) => { return meet.name; }) : ['No meets found. :(']
             });
         });
 
@@ -32,8 +32,11 @@ module.exports = {
 
     // Subscribe to meet updates
     subscribe: (req, res) => {
+        console.log('req');
         if(!req.isSocket) return res.badRequest();
         if(!req.param("name")) return res.badRequest();
+
+        console.log(req.param("name"));
 
         Meet.findOne({ name: req.param("name") }).exec((err, meet) => {
             if(err || !meet) return res.serverError();
@@ -46,6 +49,7 @@ module.exports = {
     },
 
     rankings: (req, res) => {
+        console.log('request');
         Meet.findOrCreate({ 
             name: req.body.meet,
             rankings: req.body.rankings
@@ -53,10 +57,12 @@ module.exports = {
             name: req.body.meet,
             rankings: req.body.rankings    
         }).exec((err, meet) => {
+            console.log(meet);
             if(err || !meet) return res.serverError();
             meet.rankings = req.body.rankings;
             meet.save((err) => {
                 if(err) return res.serverError();
+                res.send('ok');
             })
         });
     }

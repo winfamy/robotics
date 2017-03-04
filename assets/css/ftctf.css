@@ -1,0 +1,61 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #0d0d0d;
+  overflow-x: hidden;
+  background-image: url("../img/actionshots/scmeet2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size:cover;
+  margin: 0px;
+  padding: 0px;
+}
+
+.bwrapper {
+  background-color: white;
+  padding: 45px;
+  float: none;
+  position: static;
+  margin-left: 14%;
+  margin-right: 14%;
+  margin-top: 14%;
+  margin-bottom: 2%;
+}
+
+.bwrapper h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: black;
+}
+
+.bwrapper h3 {
+  font-size: 1.7em;
+}
+
+.bwrapper h4 {
+  font-size: 1.17em;
+}
+
+.bwrapper p {
+  
+}
+
+@media screen and (max-width: 600px) {
+  .bwrapper {
+    padding: 5px;
+    height: 100%;
+    margin-left:2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    margin-top:20%;
+  }
+} 
+
+@media screen and (min-width: 600px) {
+    p {
+    padding-left: 1em;
+    }
+    h4 {
+    padding-left: 0.5em;
+    }
+}

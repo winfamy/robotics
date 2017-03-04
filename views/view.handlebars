@@ -41,7 +41,11 @@
 					<tr class="{{match}}_1">
 						<td data-title="Match" class="_match">{{match}}</td>
 						{{#with result}}
-						<td data-title="Result" class="_result">{{score}} {{winner}}</td>
+            {{#if score}}
+						  <td data-title="Result" class="_result">{{score}} {{winner}}</td>
+            {{else}}
+              <td data-title="Result" class="_result">N/A</td>
+            {{/if}}
 						{{/with}}
 						{{#with scores}}
 						<td data-title="Red" class="_red">{{red.[0]}}</td>

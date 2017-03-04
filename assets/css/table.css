@@ -598,3 +598,14 @@ body {
     background-color: #ffccbc;
   }
 }
+
+.fill-white, .fill-white>td  {
+  background:#FFFFFF!important;
+  color: #FFFFFF;
+}
+
+animate-out {
+  -moz-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}

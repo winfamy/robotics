@@ -19,7 +19,7 @@ module.exports = {
 
 	// Model events
 	afterUpdate: (model, next) => {
-		sails.socket.broadcast(`meet_${model.name}`, 'meet_update', model);
+		sails.sockets.broadcast(`meet_${model.name}`, 'meet_update', model);
 		next();
 	}
 };
