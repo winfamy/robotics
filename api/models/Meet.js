@@ -6,14 +6,21 @@
  */
 
 module.exports = {
-  attributes: {
-    name: {
-      type: 'string'
-    },
-    rankings: {
-      type: 'json',
-      defaultsTo: null
-    }
-  }
+	attributes: {
+		name: {
+			type: 'string'
+		},
+		rankings: {
+			type: 'json',
+			defaultsTo: null
+		}
+	},
+	
+
+	// Model events
+	afterUpdate: (model, next) => {
+		sails.socket.broadcast(`meet_${model.name}`, 'meet_update', model);
+		next();
+	}
 };
 

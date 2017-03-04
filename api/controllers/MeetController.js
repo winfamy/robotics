@@ -21,10 +21,11 @@ module.exports = {
     view: (req, res) => {
         if(!req.param("name")) return res.badRequest();
 
-        Meet.find({name: req.param("name")}).exec((err, meet) => {
+        Meet.findOne({name: req.param("name")}).exec((err, meet) => {
             if(err || !meet) return res.serverError();
+            console.log(meet.rankings[0].result);
             return res.view('view', {
-                meet: JSON.stringify(meet)
+                meet: meet
             });
         })
     },
@@ -32,10 +33,13 @@ module.exports = {
     // Subscribe to meet updates
     subscribe: (req, res) => {
         if(!req.isSocket) return res.badRequest();
-        Meet.findOne({ id: req.param("id") }).exec((err, meet) => {
+        if(!req.param("name")) return res.badRequest();
+
+        Meet.findOne({ name: req.param("name") }).exec((err, meet) => {
             if(err || !meet) return res.serverError();
 
-            sails.sockets.join(req,`meet_${req.param("id")}`, () => {
+            sails.sockets.join(req,`meet_${req.param("name")}`, () => {
+                console.log('subscribed');
                 return res.json(meet);
             });
         });

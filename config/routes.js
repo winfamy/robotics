@@ -33,7 +33,9 @@ module.exports.routes = {
   ***************************************************************************/
 
   'get /': 'MeetController.index',
-  'get /meet/:name': 'MeetController.view'
+  'get /meet/:name': 'MeetController.view',
+  'post /meet/:name': 'MeetController.subscribe',
+  'get /test': 'TestController.test'
 
   /***************************************************************************
   *                                                                          *
